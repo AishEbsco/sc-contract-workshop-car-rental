@@ -28,7 +28,7 @@ public class CarRentalApplicationTests {
 
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> entity = restTemplate.getForEntity(
-				"http://localhost:8081/fraud", String.class);
+				"http://localhost:8081/fraud", String.class); //NOTE: notice the typo here
 
 		BDDAssertions.then(entity.getStatusCode().value()).isEqualTo(201);
 		BDDAssertions.then(entity.getBody()).isEqualTo(json);

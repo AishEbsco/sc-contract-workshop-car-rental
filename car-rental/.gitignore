@@ -23,3 +23,27 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+log/
+logs/
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+build/
+out/
+bin/
+
+.*
+*.iml
+*.ipr
+*.iws

@@ -32,8 +32,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile("org.springframework.boot:spring-boot-devtools")
 	testCompile('org.springframework.cloud:spring-cloud-contract-wiremock')
 	testCompile('org.springframework.cloud:spring-cloud-starter-contract-stub-runner')
+    testCompile("org.springframework.restdocs:spring-restdocs-mockmvc")
 }
 
 dependencyManagement {

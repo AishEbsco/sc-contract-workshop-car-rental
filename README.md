@@ -1,4 +1,4 @@
-# Spring Cloud Contract - Workshop (Car Rental & Fraud services)
+# Spring Cloud Contract - Workshop (Car Rental & Fraud service)
 
 ## 2 services used to demonstrate Spring Cloud Contract workflows and capabilities in this workshop are:
 ### fraud-service (provider)

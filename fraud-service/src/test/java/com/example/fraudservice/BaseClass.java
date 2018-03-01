@@ -10,13 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FraudServiceApplication.class)
-@Ignore
-public class BaseClass {
+public abstract class BaseClass {
     @Autowired
     FraudController fraudController;
 
     @Before
     public void setup() {
-        RestAssuredMockMvc.standaloneSetup(this.fraudController);
+        RestAssuredMockMvc.standaloneSetup(fraudController);
     }
 }

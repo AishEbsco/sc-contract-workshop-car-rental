@@ -22,6 +22,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.assertj.core.api.BDDAssertions;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureWireMock (port = 8081)
@@ -73,7 +75,8 @@ public class CarRentalApplicationTests {
 				.content(json))
 				.andDo(WireMockRestDocs.verify()
 						.contentType(MediaType.valueOf("application/json"))
-						.stub("shouldReturnAListOfFrauds"))///src/test/resources/contracts/shouldReturnAListOfFrauds.groovy
+						.stub("shouldReturnAListOfFrauds"))
+//				.andExpect(status().isOk())
 				.andDo(MockMvcRestDocumentation.document("shouldReturnAListOfFrauds",
 						SpringCloudContractRestDocs.dslContract()));
 	}

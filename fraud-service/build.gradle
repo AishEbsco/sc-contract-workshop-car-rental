@@ -7,19 +7,33 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		//spring cloud contract dependency
+		classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.2.3.RELEASE"
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-cloud-contract' //SCC dependency
+apply plugin: 'maven-publish' //SCC dependency for publishToMavenLocal task
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+// In this section you define all Spring Cloud Contract Verifier Gradle Plugin properties
+contracts {
+	baseClassForTests = 'com.example.fraudservice.BaseClass'
+	// fully qualified name to a class that will be the base class for your generated test classes
+}//
+
 repositories {
 	mavenCentral()
+	mavenLocal()
+	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/release" }
 }
 
 
@@ -33,6 +47,8 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.cloud:spring-cloud-contract-wiremock')
+	testCompile('org.springframework.cloud:spring-cloud-starter-contract-stub-runner')
+	testCompile('org.springframework.cloud:spring-cloud-starter-contract-verifier')
 }
 
 dependencyManagement {

@@ -16,7 +16,7 @@ import org.assertj.core.api.BDDAssertions;
 public class CarRentalApplicationTests {
 
 	@Test
-	public void test_should_return_all_frauds() {
+	public void test_should_return_all_frauds_dumbmock() {
 
 		String json = "[\"marcin\",\"josh\"]";
 
